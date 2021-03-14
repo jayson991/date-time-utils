@@ -1,5 +1,5 @@
 {
-  "name": "date-time-utils",
+  "name": "@jayson991/date-time-utils",
   "version": "0.0.1",
   "description": "A Util Library For Date && Time Operations",
   "author": "jayson991 <jaysonwu991@outlook.com>",
