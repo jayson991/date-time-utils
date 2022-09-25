@@ -79,7 +79,7 @@ console.log(getWeek(1580515200000))
 
 # All Functions
 
-> Please see more examples in [test](https://github.com/jaysonwu991/date-time-utils/blob/main/src/index.test.ts) folder, for it is not just like the below provided.
+> Please see more examples in [test](https://github.com/jaysonwu991/date-time-utils/blob/main/src/index.spec.ts) folder, for it is not just like the below provided.
 
 > Including getCalendar & getWeek. getDays is for the day difference of two dates, getHours is for the hour difference of two dates, getMinutes is for the minute difference of two dates, getSeconds is for the second difference of two dates, these four functions can be combined together to get the difference of two dates.
 

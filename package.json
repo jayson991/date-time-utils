@@ -1,6 +1,6 @@
 {
   "name": "@jayson991/date-time-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Util Library For Date && Time Operations",
   "author": "Jayson Wu <jaysonwu991@outlook.com>",
   "main": "lib/cjs/index.js",
