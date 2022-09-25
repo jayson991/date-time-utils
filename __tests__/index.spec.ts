@@ -9,7 +9,7 @@ import {
   getHours,
   getMinutes,
   getSeconds
-} from './index'
+} from '../src'
 
 describe('Test addPrefix Function', () => {
   it('It should be return 01 when parameter is 1', () => {
