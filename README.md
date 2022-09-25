@@ -13,7 +13,7 @@ $ npm i -S @jayson991/date-time-utils
 ## Use In CommonJS(Like Node.js)
 
 ```javascript
-const {getWeek, getCalendar} = require('@jayson991/date-time-utils')
+const { getWeek, getCalendar } = require('@jayson991/date-time-utils')
 
 console.log(JSON.stringify(getCalendar('2020-02-01', '2020-02-03')))
 
@@ -79,7 +79,7 @@ console.log(getWeek(1580515200000))
 
 # All Functions
 
-> Please see more examples in [test](https://github.com/jayson991/date-time-utils/tree/master/test) folder, for it is not just like the below provided.
+> Please see more examples in [test](https://github.com/jaysonwu991/date-time-utils/blob/main/src/index.test.ts) folder, for it is not just like the below provided.
 
 > Including getCalendar & getWeek. getDays is for the day difference of two dates, getHours is for the hour difference of two dates, getMinutes is for the minute difference of two dates, getSeconds is for the second difference of two dates, these four functions can be combined together to get the difference of two dates.
 
@@ -87,8 +87,8 @@ console.log(getWeek(1580515200000))
 | :----------: | :------------------------------------------------------------: |
 |  addPrefix   |                      addPrefix(1) -> '01'                      |
 | deletePrefix |                    deletePrefix('01') -> 1                     |
-| getMonthWeek |                 getMonthWeek(2020, 2, 7) -> 2                  |
-| getYearWeek  |                 getYearWeek(2020, 2, 10) -> 7                  |
+| getMonthWeek |              getMonthWeek('2020', '2', '7') -> 2               |
+| getYearWeek  |              getYearWeek('2020', '2', '10') -> 7               |
 |   getDays    |            getDays('2020-02-01', '2020-02-03') -> 2            |
 |   getHours   |     getHours('2020-02-01T10:45', '2020-02-03T12:15') -> 1      |
 |  getMinutes  |    getMinutes('2020-02-01T10:45', '2020-02-03T12:15') -> 30    |

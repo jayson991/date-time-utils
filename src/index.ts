@@ -1,19 +1,27 @@
-const addPrefix = data => {
+const addPrefix = (data: string | number): string => {
   return data < 10 ? `0${data}` : `${data}`
 }
 
-const deletePrefix = data => {
+const deletePrefix = (data: string): number => {
   const DECIMAL = 10
 
   return parseInt(data, DECIMAL)
 }
 
-const getPeriod = (start, end) => {
-  const dateStart = start.split('-')
-  const startDate = new Date(dateStart[0], deletePrefix(dateStart[1]) - 1, deletePrefix(dateStart[2]))
+const getPeriod = (start: string, end: string): { startDate: Date; endDate: Date } => {
+  const dateStart: string[] = start.split('-')
+  const startDate = new Date(
+    parseInt(dateStart[0], 10),
+    deletePrefix(dateStart[1]) - 1,
+    deletePrefix(dateStart[2])
+  )
 
-  const dateEnd = end.split('-')
-  const endDate = new Date(dateEnd[0], deletePrefix(dateEnd[1]) - 1, deletePrefix(dateEnd[2]))
+  const dateEnd: string[] = end.split('-')
+  const endDate = new Date(
+    parseInt(dateEnd[0], 10),
+    deletePrefix(dateEnd[1]) - 1,
+    deletePrefix(dateEnd[2])
+  )
 
   return {
     startDate,
@@ -21,7 +29,10 @@ const getPeriod = (start, end) => {
   }
 }
 
-const getCalendar = (start, end) => {
+const getCalendar = (
+  start: string,
+  end: string
+): { year: number; month: number; day: number; week: number }[] => {
   const period = []
   const { startDate, endDate } = getPeriod(start, end)
 
@@ -45,18 +56,18 @@ const getCalendar = (start, end) => {
   return period
 }
 
-const getWeek = (date) => {
+const getWeek = (date: string | number) => {
   const DECIMAL = 10
   let year, month, day
 
-  if (/[-/]/g.test(date) && Object.prototype.toString.call(date) === '[object String]') {
-    const dateArr = date.split(/[-/]/)
+  if (Object.prototype.toString.call(date) === '[object String]') {
+    const dateArr = (date as string).split(/[-/]/)
     year = parseInt(dateArr[0], DECIMAL)
     month = parseInt(dateArr[1], DECIMAL) - 1
     day = parseInt(dateArr[2], DECIMAL)
   }
 
-  if (!/[-/]/g.test(date) && Object.prototype.toString.call(date) === '[object Number]') {
+  if (Object.prototype.toString.call(date) === '[object Number]') {
     const dateFormat = new Date(date)
     year = dateFormat.getFullYear()
     month = dateFormat.getMonth()
@@ -66,59 +77,67 @@ const getWeek = (date) => {
   return (year && month && day && new Date(year, month, day).getDay()) || 'Invalid Date Object!'
 }
 
-const getMonthWeek = (year, month, date) => {
+const getMonthWeek = (year: string, month: string, date: string) => {
   const DECIMAL = 10
-  const dateNow = new Date(parseInt(year, DECIMAL), parseInt(month, DECIMAL) - 1, parseInt(date, DECIMAL))
+  const dateNow = new Date(
+    parseInt(year, DECIMAL),
+    parseInt(month, DECIMAL) - 1,
+    parseInt(date, DECIMAL)
+  )
   const week = dateNow.getDay()
   const day = dateNow.getDate()
 
   return Math.ceil((day + 6 - week) / 7)
 }
 
-const getYearWeek = (year, month, date) => {
+const getYearWeek = (year: string, month: string, date: string) => {
   const DECIMAL = 10
   const dateFirst = new Date(parseInt(year, DECIMAL), 0, 1)
   const oneDayTime = 24 * 60 * 60 * 1000
-  const dateNow = new Date(parseInt(year, DECIMAL), parseInt(month, DECIMAL) - 1, parseInt(date, DECIMAL))
+  const dateNow = new Date(
+    parseInt(year, DECIMAL),
+    parseInt(month, DECIMAL) - 1,
+    parseInt(date, DECIMAL)
+  )
   const dayDifference = Math.round((dateNow.valueOf() - dateFirst.valueOf()) / oneDayTime)
 
   return Math.ceil((dayDifference + dateFirst.getDay()) / 7)
 }
 
-const getDays = (startDate, endDate) => {
+const getDays = (startDate: string, endDate: string) => {
   const DECIMAL = 10
-  const periodDate = new Date(new Date(endDate) - new Date(startDate))
+  const periodDate = new Date(new Date(endDate).getTime() - new Date(startDate).getTime())
   const timeDifference = periodDate.getTime()
-  const days = timeDifference / (24 * 60 * 60 * 1000)
+  const days = `${timeDifference / (24 * 60 * 60 * 1000)}`
 
   return parseInt(days, DECIMAL)
 }
 
-const getHours = (startDate, endDate) => {
-  const milliseconds = Math.abs(new Date(endDate) - new Date(startDate))
+const getHours = (startDate: string, endDate: string) => {
+  const milliseconds = Math.abs(new Date(endDate).getTime() - new Date(startDate).getTime())
   const hoursLeft = milliseconds % (24 * 3600 * 1000)
   const hours = Math.floor(hoursLeft / (3600 * 1000))
 
   return hours
 }
 
-const getMinutes = (startDate, endDate) => {
+const getMinutes = (startDate: string, endDate: string) => {
   const defaultDate = new Date(0)
-  const periodDate = new Date(new Date(endDate) - new Date(startDate))
+  const periodDate = new Date(new Date(endDate).getTime() - new Date(startDate).getTime())
 
   return periodDate.getMinutes() - defaultDate.getMinutes()
 }
 
-const getSeconds = (startDate, endDate) => {
+const getSeconds = (startDate: string, endDate: string) => {
   const DECIMAL = 10
-  const periodDate = new Date(new Date(endDate) - new Date(startDate))
+  const periodDate = new Date(new Date(endDate).getTime() - new Date(startDate).getTime())
   const timeDifference = periodDate.getTime()
   const days = getDays(startDate, endDate)
   const hours = getHours(startDate, endDate)
   const minutes = getMinutes(startDate, endDate)
 
   return parseInt(
-    timeDifference / 1000 - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60,
+    `${timeDifference / 1000 - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60}`,
     DECIMAL
   )
 }
