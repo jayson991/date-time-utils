@@ -2,7 +2,7 @@
   "name": "@jayson991/date-time-utils",
   "version": "1.0.0",
   "description": "A Util Library For Date && Time Operations",
-  "author": "jayson991 <jaysonwu991@outlook.com>",
+  "author": "Jayson Wu <jaysonwu991@outlook.com>",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
