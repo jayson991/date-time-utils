@@ -1,6 +1,6 @@
 # date-time-utils
 
-> A Util Library For Date && Time Operations.
+A Util Library For Date && Time Operations, it can be used in both CommonJS and ES Module, and it supports both JS and TS as well.
 
 # Usage
 
@@ -40,7 +40,7 @@ console.log(getWeek(1580515200000))
 6 // console.log(getWeek(1580515200000))
 ```
 
-## Use In ES6 Module(Like Vue | React | Angular Projects)
+## Use In ES6 Module
 
 ```javascript
 import { getCalendar, getWeek } from '@jayson991/date-time-utils'
@@ -79,7 +79,7 @@ console.log(getWeek(1580515200000))
 
 # All Functions
 
-> Please see more examples in [test](https://github.com/jaysonwu991/date-time-utils/blob/main/src/index.spec.ts) file, for it is not just like the below provided.
+> Please see more examples in [test](https://github.com/jaysonwu991/date-time-utils/blob/main/tests/index.spec.ts) file, for it is not just like the below provided.
 
 > Including getCalendar & getWeek. getDays is for the day difference of two dates, getHours is for the hour difference of two dates, getMinutes is for the minute difference of two dates, getSeconds is for the second difference of two dates, these four functions can be combined together to get the difference of two dates.
 

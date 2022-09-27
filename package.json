@@ -8,9 +8,9 @@
   "types": "lib/types/index.d.ts",
   "license": "ISC",
   "scripts": {
-    "test": "jest __tests__",
-    "lint": "eslint ./ --ext .ts",
-    "lint:fix": "eslint ./ --ext .ts --fix",
+    "test": "jest",
+    "lint": "eslint ./ --ext .js,.ts",
+    "lint:fix": "eslint ./ --ext .js,.ts --fix",
     "prettier": "prettier --write src/**/*.ts",
     "build:types": "tsc --outDir lib/types",
     "build:esm": "swc src -C minify=true -C module.type=es6 -d lib/esm",
