@@ -2,6 +2,24 @@
 
 A Util Library For Date && Time Operations, it can be used in both CommonJS and ES Module, and it supports both JS and TS as well.
 
+> Warning: This module won't check if the parameters are valid for you, and it won't throw any errors when using.
+
+## Date Parsing Support
+
+> Warning: Note that all date data is parsed by `new Date()`, be careful to the use cases with locale and timezone.
+
+| Data Type |      Example Date Data       |
+| :-------: | :--------------------------: |
+|  string   |         '2020-02-01'         |
+|  string   |         '2020/02/01'         |
+|  string   |      '2020-02-01T10:45'      |
+|  string   |    '2020-02-01T10:45:00'     |
+|  string   |  '2020-02-01T10:45:00+0800'  |
+|  string   |    '2020-02-01 05:20:00'     |
+|  string   | '2020-02-01 05:20:00 +08:00' |
+|  string   |  '2020-01-31T21:20:00.000Z'  |
+|  number   |        1580515200000         |
+
 # Usage
 
 ## Installation
@@ -10,16 +28,16 @@ A Util Library For Date && Time Operations, it can be used in both CommonJS and 
 $ npm i -S @jayson991/date-time-utils
 ```
 
-## Use In CommonJS(Like Node.js)
+## Use In CommonJS
 
 ```javascript
-const { getWeek, getCalendar } = require('@jayson991/date-time-utils')
+const { getWeek, getCalendar } = require('@jayson991/date-time-utils');
 
-console.log(JSON.stringify(getCalendar('2020-02-01', '2020-02-03')))
+console.log(JSON.stringify(getCalendar('2020-02-01', '2020-02-03')));
 
-console.log(getWeek('2020-02-01'))
-console.log(getWeek('2020/02/01'))
-console.log(getWeek(1580515200000))
+console.log(getWeek('2020-02-01'));
+console.log(getWeek('2020/02/01'));
+console.log(getWeek(1580515200000));
 ```
 
 ### getCalendar Output
@@ -35,21 +53,21 @@ console.log(getWeek(1580515200000))
 ### getWeek Output
 
 ```javascript
-6 // console.log(getWeek('2020-02-01'))
-6 // console.log(getWeek('2020/02/01'))
-6 // console.log(getWeek(1580515200000))
+6; // console.log(getWeek('2020-02-01'))
+6; // console.log(getWeek('2020/02/01'))
+6; // console.log(getWeek(1580515200000))
 ```
 
 ## Use In ES6 Module
 
 ```javascript
-import { getCalendar, getWeek } from '@jayson991/date-time-utils'
+import { getCalendar, getWeek } from '@jayson991/date-time-utils';
 
-console.log(JSON.stringify(getCalendar('2020-02-01', '2020-02-03')))
+console.log(JSON.stringify(getCalendar('2020-02-01', '2020-02-03')));
 
-console.log(getWeek('2020-02-01'))
-console.log(getWeek('2020/02/01'))
-console.log(getWeek(1580515200000))
+console.log(getWeek('2020-02-01'));
+console.log(getWeek('2020/02/01'));
+console.log(getWeek(1580515200000));
 ```
 
 ### getCalendar Output
@@ -65,9 +83,9 @@ console.log(getWeek(1580515200000))
 ### getWeek Output
 
 ```javascript
-6 // console.log(getWeek('2020-02-01'))
-6 // console.log(getWeek('2020/02/01'))
-6 // console.log(getWeek(1580515200000))
+6; // console.log(getWeek('2020-02-01'))
+6; // console.log(getWeek('2020/02/01'))
+6; // console.log(getWeek(1580515200000))
 ```
 
 # Explanation
